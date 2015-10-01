@@ -1,5 +1,5 @@
-#This script is based on the R-bloggers post at
-#http://www.r-bloggers.com/load-postgis-geometries-in-r-without-rgdal/
+# This script is based on the R-bloggers post at
+# http://www.r-bloggers.com/load-postgis-geometries-in-r-without-rgdal/
 
 # Install packages (comment if they are previously installed)
 install.packages("RPostgreSQL")
