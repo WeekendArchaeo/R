@@ -18,7 +18,11 @@ library("RPostgreSQL")
 library("rgeos")
 library("sp")
 
-# Create connection with Postgres db
+# Create connection with Postgres DB
 drv <- dbDriver("PostgreSQL")
 con <- dbConnect(drv,dbname='yourDBname',host='localhost',port=5432,user='yourUser',password='yourPw')
+
+# Disconnect from the BD
+dbDisconnect(con)
+dbUnloadDriver(drv)
 
