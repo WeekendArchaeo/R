@@ -16,10 +16,9 @@ source(paste(system("rospack find rosR",intern=TRUE),"/lib/ros.R",sep=""),chdir=
 X11()
 ros.Init("R_arduino")
 
-#subscription <- ros.Subscriber("/chatter", "std_msgs/String")
 subscription <- ros.Subscriber("/chatter", "std_msgs/Int16")
 
-# x and y are vectors of length 20, filled with 0s
+# time and voltage are vectors of length 20, filled with 0s
 time <- rep(0, 50)
 voltage <- rep(0, 50)
 
@@ -29,8 +28,8 @@ while(ros.OK()) # evaluates to TRUE as long as the master online
 	if(ros.SubscriberHasNewMessage(subscription))
 	{
 		message <- ros.ReadMessage(subscription)
-		voltage <- c(voltage[-1], message$data)  # append message$data values to the end of y vector
-		time <- c(time[-1], ros.TimeNow()) # append time values to the end of x vector
+		voltage <- c(voltage[-1], message$data)  # append message$data values to the end of voltage vector
+		time <- c(time[-1], ros.TimeNow()) # append time values to the end of time vector
 
 		# When vectors are filled, the plot looks like a real-time plot
 		plot(time, voltage, t="l", col="blue", xlab='Time', ylab='Voltage (mV)', main='FSR readings')
