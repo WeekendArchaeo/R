@@ -24,15 +24,15 @@ voltage <- rep(0, 50)
 
 while(ros.OK()) # evaluates to TRUE as long as the master online
 { 
-	ros.SpinOnce()
-	if(ros.SubscriberHasNewMessage(subscription))
-	{
-		message <- ros.ReadMessage(subscription)
-		voltage <- c(voltage[-1], message$data)  # append message$data values to the end of voltage vector
-		time <- c(time[-1], ros.TimeNow()) # append time values to the end of time vector
+  ros.SpinOnce()
+  if(ros.SubscriberHasNewMessage(subscription))
+  {
+    message <- ros.ReadMessage(subscription)
+    voltage <- c(voltage[-1], message$data)  # append message$data values to the end of voltage vector
+    time <- c(time[-1], ros.TimeNow()) # append time values to the end of time vector
 
-		# When vectors are filled, the plot looks like a real-time plot
-		plot(time, voltage, t="l", col="blue", xlab='Time', ylab='Voltage (mV)', main='FSR readings')
+    # When vectors are filled, the plot looks like a real-time plot
+    plot(time, voltage, t="l", col="blue", xlab='Time', ylab='Voltage (mV)', main='FSR readings')
                 print(message$data) # sensor readings are also printed in console, just to check
-	}
+  }
 }
