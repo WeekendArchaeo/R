@@ -1,6 +1,6 @@
 # -----------------------------------------------------------
 # Turtlebot 2: encoders info plot and analysis
-# Ana Cruz-Martín 2015
+# Copyright (C) 2015 Ana Cruz-Martín (anacruzmartin@gmail.com)
 #  
 # Measurements are read from rows of a file with this format:
 #   [msgs_secs msgs_nsecs sensor_timestamp left_enc right_enc]
