@@ -11,12 +11,9 @@
 
 # Install packages (comment if they are previously installed)
 install.packages("RPostgreSQL")
-install.packages("rgeos")
 
 # Load packages
 library("RPostgreSQL")
-library("rgeos")
-library("sp")
 
 # Create connection with Postgres DB
 drv <- dbDriver("PostgreSQL")
